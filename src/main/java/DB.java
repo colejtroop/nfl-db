@@ -21,7 +21,7 @@ public class DB implements AutoCloseable {
             System.out.println("Connected to Oracle.");
         } catch (ClassNotFoundException e) {
             System.out.println("Oracle JDBC driver was not found.");
-            System.out.println("Put ojdbc11.jar next to cot428.jar.");
+            System.out.println("Add ojdbc11.jar to the Java runtime classpath.");
         } catch (SQLException e) {
             System.out.println("Could not connect to Oracle.");
             System.out.println(e.getMessage());

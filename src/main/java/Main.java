@@ -24,7 +24,12 @@ public class Main {
             return;
         }
 
-        try (DB db = new DB(DEFAULT_JDBC_URL, user, password)) {
+        String jdbcUrl = System.getenv("FIRST_DOWN_JDBC_URL");
+        if (jdbcUrl == null || jdbcUrl.isBlank()) {
+            jdbcUrl = DEFAULT_JDBC_URL;
+        }
+
+        try (DB db = new DB(jdbcUrl, user, password)) {
             if (!db.isConnected()) {
                 return;
             }
